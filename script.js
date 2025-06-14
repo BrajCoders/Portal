@@ -309,7 +309,7 @@ function addSocialInteractions() {
       let url = ""
 
       if (iconClass.includes("github")) {
-        url = "https://github.com/brajcoders"
+        url = "https://github.com/BrajCoders/"
       } else if (iconClass.includes("linkedin")) {
         url = "https://linkedin.com/company/brajcoders"
       } else if (iconClass.includes("twitter")) {
