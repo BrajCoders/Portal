@@ -488,9 +488,9 @@
     <!-- Footer -->
     <footer class="relative z-10 footer-bg backdrop-blur-sm mt-20">
         <div class="max-w-7xl mx-auto px-6 py-8">
-            <div class="text-center">
+            <div class="text-center flex flex-col items-center ">
                 <div class="text-xl font-bold mb-4">BRAJCODERS</div>
-                <p class="footer-text mb-4">
+                <p class="footer-text mb-4 mt-2">
                     Crafting purposeful digital experiences since 2020
                 </p>
                 <p class="footer-copyright text-sm">
@@ -502,9 +502,9 @@
 
     <script src="script.js"></script>
     <script>
-const TOKEN = "7423129647:AAFG7h_5m5cJQclD_CHuotE9XHKQwFH8nR8";
-const CHAT_ID = "-4975449352";
-const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+const dfaf = "";
+const gsh = "-4975449352";
+const URI_API = `https://api.telegram.org/bot${dfaf}}/sendMessage`;
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -521,7 +521,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            chat_id: CHAT_ID,
+            gsh: gsh,
             parse_mode: "html",
             text: message
         })
