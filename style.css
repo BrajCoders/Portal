@@ -317,6 +317,12 @@ body.light {
   animation: float-dots 10s ease-in-out infinite;
 }
 
+.bi:hover{
+  transform: scale(1.2);
+  transition: 1s;
+
+}
+
 .mesh-gradient {
   background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(255, 165, 0, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255, 140, 0, 0.12) 0%, transparent 50%),
