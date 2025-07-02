@@ -5,11 +5,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="./images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BRAJCODERS - Crafting Purposeful Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link sm:block rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link sm:block rel="stylesheet" href="style.css"><!-- fixed typo -->
+    <link sm:block rel="stylesheet" href="./style.css"><!-- fixed typo -->
 </head>
 <body class="overflow-x-hidden bg-black text-white relative transition-colors duration-300" id="body">
 
@@ -500,7 +501,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <script>
 const dfaf = "";
 const gsh = "-4975449352";
@@ -538,6 +539,19 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     })
     .catch(() => alert("Network error."));
 });
+  // Disable Right Click
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  // Disable F12, Ctrl+Shift+I/J/C/U
+  document.addEventListener('keydown', function (e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+    }
+  });
 </script>
 </body>
 </html>
