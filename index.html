@@ -13,7 +13,7 @@
     <title>BRAJCODERS - Crafting Purposeful Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link sm:block rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link sm:block rel="stylesheet" href="./style.css"><!-- fixed typo -->
+    <link sm:block rel="stylesheet" href="./style.css">
 </head>
 
 <body class="overflow-x-hidden bg-black text-white relative transition-colors duration-300" id="body">
@@ -560,7 +560,7 @@
 
     <!-- Footer -->
     <footer class="relative z-10 footer-bg backdrop-blur-sm mt-20">
-        <div class="max-w-7xl mx-auto px-6 py-8 flex">
+        <div class="max-w-7xl mx-auto px-6 py-8 flex sm:flex-row items-center justify-center flex-col">
             <div class="text-center flex flex-col items-center justify-center">
                 <div class="text-xl font-bold mb-4">BRAJCODERS</div>
                 <p class="footer-text mb-4 mt-2">
@@ -574,44 +574,7 @@
         </div>
     </footer>
 
-    <script src="./script.js"></script>
     <script>
-        const dfaf = "";
-        const gsh = "-4975449352";
-        const URI_API = `https://api.telegram.org/bot${dfaf}}/sendMessage`;
-
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const form = e.target;
-            const message = `<b>New Contact Form Submission</b>\n`
-                + `<b>First Name:</b> ${form.firstName.value}\n`
-                + `<b>Last Name:</b> ${form.lastName.value}\n`
-                + `<b>Email:</b> ${form.email.value}\n`
-                + `<b>Message:</b> ${form.message.value}`;
-
-            fetch(URI_API, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    gsh: gsh,
-                    parse_mode: "html",
-                    text: message
-                })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data); // See Telegram's error message
-                    if (data.ok) {
-                        alert("Message sent successfully!");
-                        form.reset();
-                    } else {
-                        alert("Failed to send message: " + (data.description || "Unknown error"));
-                    }
-                })
-                .catch(() => alert("Network error."));
-        });
         // Disable Right Click
         document.addEventListener('contextmenu', (e) => e.preventDefault());
 
@@ -626,6 +589,7 @@
             }
         });
     </script>
+    <script src="./script.js" ></script>
 </body>
 
 </html>

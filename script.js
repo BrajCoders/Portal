@@ -1,32 +1,24 @@
 // Theme Management
 let isDark = true
-const body = document.getElementById("body")
-const themeToggle = document.getElementById("theme-toggle")
-const themeIcon = document.getElementById("theme-icon")
-
-// Mouse position tracking
 const mousePosition = { x: 0, y: 0 }
 
-// Initialize theme
-function initTheme() {
+function initTheme(body, themeIcon) {
   body.className = isDark
     ? "min-h-screen bg-black text-white relative transition-colors duration-300 dark"
     : "min-h-screen bg-white text-gray-900 relative transition-colors duration-300 light"
   themeIcon.className = isDark ? "fas fa-sun h-5 w-5" : "fas fa-moon h-5 w-5"
 }
 
-// Toggle theme
-function toggleTheme() {
+function toggleTheme(body, themeIcon) {
   isDark = !isDark
-  initTheme()
+  initTheme(body, themeIcon)
   updateSpotlightColors()
 }
 
-// Update spotlight colors based on theme
 function updateSpotlightColors() {
   const primarySpotlight = document.getElementById("spotlight-primary")
   const secondarySpotlight = document.getElementById("spotlight-secondary")
-
+  if (!primarySpotlight || !secondarySpotlight) return
   if (isDark) {
     primarySpotlight.style.background = `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,165,0,0.15) 0%, rgba(255,140,0,0.1) 25%, transparent 50%)`
     secondarySpotlight.style.background = `radial-gradient(400px circle at ${mousePosition.x - 100}px ${mousePosition.y + 100}px, rgba(255,69,0,0.1) 0%, transparent 40%)`
@@ -36,10 +28,33 @@ function updateSpotlightColors() {
   }
 }
 
-// Handle mouse movement for spotlight effect
 function handleMouseMove(e) {
   mousePosition.x = e.clientX
   mousePosition.y = e.clientY
+  updateSpotlightColors()
+}
+
+// Mouse position tracking
+const mousePositio = { x: 0, y: 0 }
+
+// Update spotlight colors based on theme
+function updateSpotlightColors() {
+  const primarySpotlight = document.getElementById("spotlight-primary")
+  const secondarySpotlight = document.getElementById("spotlight-secondary")
+
+  if (isDark) {
+    primarySpotlight.style.background = `radial-gradient(800px circle at ${mousePositio.x}px ${mousePositio.y}px, rgba(255,165,0,0.15) 0%, rgba(255,140,0,0.1) 25%, transparent 50%)`
+    secondarySpotlight.style.background = `radial-gradient(400px circle at ${mousePositio.x - 100}px ${mousePositio.y + 100}px, rgba(255,69,0,0.1) 0%, transparent 40%)`
+  } else {
+    primarySpotlight.style.background = `radial-gradient(800px circle at ${mousePositio.x}px ${mousePositio.y}px, rgba(255,165,0,0.08) 0%, rgba(255,140,0,0.05) 25%, transparent 50%)`
+    secondarySpotlight.style.background = `radial-gradient(400px circle at ${mousePositio.x - 100}px ${mousePositio.y + 100}px, rgba(255,69,0,0.05) 0%, transparent 40%)`
+  }
+}
+
+// Handle mouse movement for spotlight effect
+function handleMouseMove(e) {
+  mousePositio.x = e.clientX
+  mousePositio.y = e.clientY
   updateSpotlightColors()
 }
 
@@ -325,16 +340,43 @@ function addSocialInteractions() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme()
+  const body = document.getElementById("body")
+  const themeToggle = document.getElementById("theme-toggle")
+  const themeIcon = document.getElementById("theme-icon")
+
+  if (body && themeToggle && themeIcon) {
+    initTheme(body, themeIcon)
+    themeToggle.addEventListener("click", () => toggleTheme(body, themeIcon))
+    window.addEventListener("mousemove", handleMouseMove)
+    updateSpotlightColors()
+  }
+
+  // Smooth scrolling for navigation links
   handleNavigation()
+
+  // Form submission handler
   handleFormSubmission()
+
+  // Add scroll animations
   addScrollAnimations()
   addEnhancedScrollAnimations()
+
+  // Add card effects
   addCardEffects()
+
+  // Add parallax effect
   addParallaxEffect()
+
+  // Add button interactions
   addButtonInteractions()
+
+  // Add loading animation
   addLoadingAnimation()
+
+  // Add social interactions
   addSocialInteractions()
+
+  // Add cursor trail effect
   addCursorTrail()
 
   // Event listeners
